@@ -19,6 +19,7 @@ func Test_squareNumber(t *testing.T) {
 	go squareNumber(11, &wg)
 	wg.Wait()
 
+	//if you forget it , a loop will create
 	w.Close()
 
 	res, _ := io.ReadAll(r)

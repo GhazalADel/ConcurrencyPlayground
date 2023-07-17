@@ -1,0 +1,2 @@
+for show details of test:
+    go test -v .
