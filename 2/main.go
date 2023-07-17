@@ -15,6 +15,8 @@ func main() {
 	var wg sync.WaitGroup
 
 	//--------SECTION 1 --------
+
+	//RACE CONDITION
 	wg.Add(3)
 	go changeMsg("Hello2", &wg)
 	go changeMsg("How Are You2", &wg)
