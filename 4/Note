@@ -1,0 +1,18 @@
+Before using mutex, if we use command  `go run -race .`,we will see we have race condition and the amount of budget
+increase incorrectly.
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+If we use wg.Add(12) , the month number increase incorrectly and result is something like this:
+In month 12, Badget is : 2100
+In month 6, Badget is : 4100
+In month 1, Badget is : 6100
+In month 2, Badget is : 8100
+In month 3, Badget is : 10100
+In month 4, Badget is : 12100
+In month 5, Badget is : 14100
+In month 7, Badget is : 16100
+In month 8, Badget is : 18100
+In month 9, Badget is : 20100
+In month 10, Badget is : 22100
+In month 11, Badget is : 24100
+
+but we want to have order. for this reason we use wg.Add(1) and wg.Wait() before every goroutine in the loop.
