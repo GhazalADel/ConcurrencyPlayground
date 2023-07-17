@@ -1,0 +1,35 @@
+we have following program:
+
+func squareNumber(num int) {
+	fmt.Println(num * num)
+}
+func main(){
+    go squareNumber(10)
+    squareNumber(20)
+}
+
+output : 400
+
+Reason : This program executed so quickly that there was not sufficient time for that goroutine.
+
+There are three solutions:
+    1.use time.Sleep(1*time.Second) --> BAD because we don't know how many seconds we need.
+    2.use waitgroup
+    3.use channel
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+numbers := []int{
+		2,
+		8,
+		100,
+		76,
+}
+
+for _,v:=range numbers{
+    go squareNumber(v)
+}
+
+Every time we run this program, the order is different.
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

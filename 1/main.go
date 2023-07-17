@@ -5,10 +5,9 @@ import (
 	"sync"
 )
 
-func squareNumber(num int, wg *sync.WaitGroup) int {
+func squareNumber(num int, wg *sync.WaitGroup) {
 	defer wg.Done()
 	fmt.Println(num * num)
-	return num * num
 }
 func main() {
 	var wg sync.WaitGroup
