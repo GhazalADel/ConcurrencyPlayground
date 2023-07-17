@@ -25,6 +25,7 @@ func main() {
 	}
 	wg.Wait()
 
+	//if we don't add 1 , in the squareNumber function the value will become -1 --> PANIC
 	wg.Add(1)
 	//it prints after array elements always
 	squareNumber(200, &wg)
